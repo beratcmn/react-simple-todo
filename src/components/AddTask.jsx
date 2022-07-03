@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function AddTask({ onAdd, isOn }) {
   const [title, setTitle] = useState("");
@@ -35,12 +36,11 @@ export default function AddTask({ onAdd, isOn }) {
   let visibleStatus = isOn === true ? "block" : "hidden";
 
   return (
-    <div
-      className={`${
-        isOn === true
-          ? "scale-y-100 opacity-100 " + visibleStatus
-          : "scale-y-0 opacity-0 " + visibleStatus
-      } transition-all duration-300 origin-top`}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`${visibleStatus}`}
     >
       <form className="flex flex-col space-y-5" onSubmit={submitTask}>
         <div className="flex flex-col gap-y-2">
@@ -101,6 +101,6 @@ export default function AddTask({ onAdd, isOn }) {
           className="place-self-center w-fit mt-4 bg-orange-400 px-7 py-2 cursor-pointer text-lg text-white rounded-md hover:rounded-2xl transition-all duration-300"
         />
       </form>
-    </div>
+    </motion.div>
   );
 }
