@@ -12,9 +12,9 @@ export default function Navbar(props) {
         </div>
 
         <div className="flex flex-row gap-x-5 font-medium">
-          <div className="">Seçenek 1</div>
-          <div className="">Seçenek 2</div>
-          <div className="">Seçenek 3</div>
+          <div className="cursor-pointer">Seçenek 1</div>
+          <div className="cursor-pointer">Seçenek 2</div>
+          <div className="cursor-pointer">Seçenek 3</div>
         </div>
       </div>
     </nav>
