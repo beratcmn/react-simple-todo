@@ -1,11 +1,13 @@
 import { FaTimes } from "react-icons/fa";
 
-export default function Task({ task, onDelete }) {
-  const border = task.reminder === true ? "border-2 border-orange-400" : "";
+export default function Task({ task, onDelete, toggleReminder }) {
+  const border =
+    task.reminder === true ? "outline outline-offset-2 outline-orange-400" : "";
   return (
     <div
+      onDoubleClick={() => toggleReminder(task.id)}
       className={
-        "flex flex-col gap-y-2 w-full py-4 px-6 bg-orange-100 rounded-xl " +
+        "flex flex-col gap-y-2 w-full py-4 px-6 bg-orange-100 rounded-xl cursor-pointer hover:scale-95 transition-transform duration-300 " +
         border
       }
     >
